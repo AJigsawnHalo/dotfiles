@@ -47,6 +47,8 @@ alias gpsh='git push'
 alias gpll='git pull'
 alias gpsho='git push origin'
 alias gpllo='git pull origin'
+alias gpshm='git push mirror'
+alias gpllm='git pull mirror'
 alias gcmmt='git commit'
 alias gchkout='git checkout'
 
