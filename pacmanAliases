@@ -1,0 +1,14 @@
+# Package Management Aliases
+
+## Arch-based Distros (Pacman)
+alias updt='sudo pacman -Syu'
+alias inst='yay -S'
+alias remo='yay -R'
+alias aremo='yay -Rs'
+alias clean='yay -Scc'
+alias upgd='yay -Syyu  --nodiffmenu --noeditmenu '
+alias yay='yay --noeditmenu --nodiffmenu' 
+alias updt='yay -Syy'
+alias orph='sudo pacman -Rns $(pacman -Qtdq)'
+
+

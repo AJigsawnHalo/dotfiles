@@ -1,0 +1,13 @@
+# Package Management Aliases
+
+## Debian-based Distros (Apt)
+alias upgd='sudo apt update && sudo apt list --upgradable && sudo apt upgrade'
+alias inst='sudo apt install'
+alias addrepo='sudo apt-add-repository'
+alias prge='sudo apt purge'
+alias remo='sudo apt remove'
+alias aremo='sudo apt autoremove'
+alias distup='sudo apt update && apt list --upgradable && sudo apt upgrade && sudo apt dist-upgrade'
+alias acln='sudo apt autoclean'
+alias updt='sudo apt update && apt list --upgradable'
+

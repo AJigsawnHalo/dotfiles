@@ -1,0 +1,3 @@
+rofi.combi-modi:    drun,run
+rofi.modi: window,run,drun,combi
+rofi.theme: flatorange.rasi

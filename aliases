@@ -1,0 +1,81 @@
+##### User Aliases #####
+alias spdtstr='speedtest-cli --server 12210 --share'
+alias spdtst='speedtest-cli --share --server 7167'
+alias i3conf='vim  ~/.config/regolith/i3/config'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
+alias temp='sensors'
+alias syctl="sudo systmctl"
+alias qmake-win='i686-w64-mingw32.static-qmake-qt5'
+alias wg='wordgrinder'
+alias df='pydf'
+
+# system76-power
+alias profile="system76-power profile"
+alias graphics="system76-power graphics"
+
+# cd aliases
+alias cd.='cd ..'
+alias cd~='cd ~'
+alias cdtmp='cd /tmp'
+alias cdlog='cd /var/log'
+alias cddot='cd ~/dotfiles'
+alias p-writing='cd ~/Projects/writing'
+
+# Vim aliases
+alias vi='vim'
+alias wiki='vim ~/Wiki/index.md'
+alias notes='vim ~/Notes/index.md'
+alias gwiki='gvim ~/Wiki/index.md'
+alias gnotes='gvim ~/Notes/index.md'
+
+# Spacemacs Aliases
+alias remacs='systemctl --user restart emacs'
+alias start-emacs='systemctl --user start emacs'
+alias stop-emacs='systemctl --user stop emacs'
+alias kemacs='killall emacs'
+alias smu='emacsclient -c'
+alias smc='emacsclient -nw -c'
+alias emacs='emacs --insecure'
+alias ssmu='sudo emacs'
+alias ssmc='sudo emacs -nw '
+alias smca='emacsclient -c -nw ~/Wiki/agenda.org'
+alias smct='emacsclient -c -nw ~/Wiki/todo.org'
+
+# git aliases
+alias gpsh='git push'
+alias gpll='git pull'
+alias gpsho='git push origin'
+alias gpllo='git pull origin'
+alias gcmmt='git commit'
+alias gchkout='git checkout'
+
+# SSH Aliases
+alias akagi='ssh akagi-internal -Y'
+alias akagi-pub='ssh akagi-pub -Y'
+alias kaga='ssh kaga'
+alias soryu='ssh soryu'
+alias buildbox='ssh lfs-system'
+alias lfs='ssh lfs-build'
+alias tsukushi='ssh tsukushi'
+
+# tmux Aliases
+#alias tmux="tmux -2"
+alias ta="tmux  a"
+alias ts="tmux new -s"
+
+# ls Aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lss='ls -s'
+
+# Akagi Server Mounts
+alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //192.168.18.144/exhdd /media/exhdd'
+alias mnt-akagi='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //192.168.18.144/akagi-home /media/akagi'
+alias umnt-akagi='sudo umount /media/akagi'
+alias umnt-hdd='sudo umount /media/exhdd'
+
+# Project aliases and variables
+export akltn="/home/elskiee/Projects/Aklatan"
+alias akltn-dir="cd $akltn/Devel"
