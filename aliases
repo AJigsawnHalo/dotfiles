@@ -7,6 +7,7 @@ alias poweroff='sudo poweroff'
 alias temp='sensors'
 alias syctl="sudo systmctl"
 alias qmake-win='i686-w64-mingw32.static-qmake-qt5'
+alias qmake-win64='x86_64-w64-mingw32.static-qmake-qt5'
 alias wg='wordgrinder'
 alias df='pydf'
 
