@@ -22,7 +22,6 @@ set showmatch
 set hlsearch
 set ic
 set laststatus=2
-set guioptions -=T
 set splitright
 set splitbelow
 set nocompatible
@@ -34,6 +33,10 @@ set timeoutlen=3000
 
 if has('gui_running')
 	set guifont=Source\ Code\ Pro\ 10
+	set guioptions -=T
+	set guioptions -=m
+	set guioptions -=L
+	set guioptions -=r
 	set lines=42 columns=150
 endif
 
@@ -67,8 +70,6 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_folding='expr'
 set foldlevelstart=2
 
-let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
-let g:org_agenda_files=['~/Wiki/*.org']
 
 " instant-markdown settings
 "set shell=bash\ -i
@@ -97,6 +98,13 @@ let g:ycm_filetype_whitelist = {
 			\ }
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" Calendar options
+let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
+
+" Orgmode options
+let g:org_agenda_files = ['~/Dropbox/wiki/org/agenda.org']
+let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
 
 " Vim-Plug Plugins
 call plug#begin('~/.vim/plugged')
@@ -127,6 +135,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'jceb/vim-orgmode'
 Plug 'https://github.com/tpope/vim-speeddating'
 Plug 'git://github.com/mattn/calendar-vim'
+"Plug 'git://github.com/itchyny/calendar.vim'
 Plug 'https://github.com/inkarkat/vim-SyntaxRange'
 Plug 'vim-scripts/utl.vim'
 
@@ -142,3 +151,4 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 call plug#end()
 
 set noshowmode 
+let maplocalleader= "\<Space>"
