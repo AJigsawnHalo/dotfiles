@@ -31,7 +31,10 @@ set ttimeout
 set ttimeoutlen=100
 set foldlevelstart=5
 set timeoutlen=3000
+set noshowmode 
+let maplocalleader= "\<Space>"
 
+" Gui options
 if has('gui_running')
 	set guifont=Source\ Code\ Pro\ 10
 	set guioptions -=T
@@ -41,15 +44,24 @@ if has('gui_running')
 	set lines=42 columns=150
 endif
 
-" keybinds
+" Custom Commands
+command Qmake !qmake
+command CdAkltn cd ~/Projects/Aklatan/Devel
+command CdWiki cd ~/Wiki
+command CdNotpad cd ~/Projects/cpp/Notpad
+
+" Custom Keybinds
 nnoremap <leader><space> :nohlsearch<CR> 
 map <C-o> :NERDTreeToggle<CR>
 nnoremap <leader>t :bel terminal<CR>
 nnoremap <leader>vt :vert terminal<CR>
 nnoremap <leader>ycm :YcmGenerateConfig<CR>
 
-" i3conf syntax detection
 
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Plugin Options     plug-opt
+
+" i3conf syntax detection
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/regolith/i3/config set filetype=i3config
@@ -95,18 +107,24 @@ let g:ycm_filetype_whitelist = {
 			\ "sh":1,
 			\ "zsh":1,
 			\ "python":1,
+			\ "vim":1,
 			\ }
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
 
 " Calendar-vim options
 let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
+"let g:calendar_first_day='monday'
+"let g:calendar_google_calendar = 1
+"let g:calendar_google_task = 1
 
 " Orgmode options
 let g:org_agenda_files = ['~/Dropbox/wiki/org/tasks.org', '~/Dropbox/wiki/org/events.org']
 let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
 
-" Vim-Plug Plugins
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" Vim-Plug Plugins     vim-plug
 call plug#begin('~/.vim/plugged')
 
 " lightline.vim
@@ -150,5 +168,3 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 call plug#end()
 
-set noshowmode 
-let maplocalleader= "\<Space>"
