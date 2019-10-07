@@ -101,7 +101,7 @@ source ~/.packman_aliases
 DEFAULT_USER="elskiee"
 bindkey -v
 export KEYTIMEOUT=1
-PATH="$HOME/.scripts:$HOME/Other/mxe/usr/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/.scripts:$HOME/Other/mxe-64/usr/bin:$HOME/.local/bin:$PATH"
 export PATH
 WIKI=/home/elskiee/Dropbox/wiki
 export WIKI 
