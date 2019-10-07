@@ -29,6 +29,7 @@ set viminfo='100,<50,s10,h,%
 set shiftwidth=4
 set ttimeout
 set ttimeoutlen=100
+set foldlevelstart=5
 set timeoutlen=3000
 
 if has('gui_running')
@@ -68,7 +69,6 @@ let g:vimwiki_list = [wiki_notes,wiki_writing]
 "let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'default', 'ext': '.wiki'}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_folding='expr'
-set foldlevelstart=2
 
 
 " instant-markdown settings
@@ -103,7 +103,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
 
 " Orgmode options
-let g:org_agenda_files = ['~/Dropbox/wiki/org/agenda.org']
+let g:org_agenda_files = ['~/Dropbox/wiki/org/tasks.org', '~/Dropbox/wiki/org/events.org']
 let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
 
 " Vim-Plug Plugins
