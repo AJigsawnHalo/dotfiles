@@ -99,7 +99,7 @@ let g:ycm_filetype_whitelist = {
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
 
-" Calendar options
+" Calendar-vim options
 let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
 
 " Orgmode options
