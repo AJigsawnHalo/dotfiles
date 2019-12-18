@@ -48,14 +48,17 @@ endif
 command Qmake !qmake
 command CdAkltn cd ~/Projects/Aklatan/Devel
 command CdWiki cd ~/Wiki
-command CdNotpad cd ~/Projects/cpp/Notpad
 
 " Custom Keybinds
 nnoremap <leader><space> :nohlsearch<CR> 
 map <C-o> :NERDTreeToggle<CR>
 nnoremap <leader>t :bel terminal<CR>
 nnoremap <leader>vt :vert terminal<CR>
+nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>ycm :YcmGenerateConfig<CR>
+"" Rust keybinds
+nnoremap <leader>cr :!cargo run<CR>
+nnoremap <leader>cb :!cargo build<CR>
 
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,14 +104,6 @@ let g:lightline = {
 let g:tex_flavor = 'latex'
 
 " YCM Options
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cpp":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "python":1,
-			\ "vim":1,
-			\ }
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
 
@@ -119,7 +114,7 @@ let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
 "let g:calendar_google_task = 1
 
 " Orgmode options
-let g:org_agenda_files = ['~/Dropbox/wiki/org/tasks.org', '~/Dropbox/wiki/org/events.org']
+let g:org_agenda_files = ['~/Dropbox/wiki/org/tasks.org', '~/Dropbox/wiki/org/events.org', '~/Dropbox/wiki/projects/notpad.org']
 let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
 
 
@@ -166,5 +161,9 @@ Plug 'lervag/vimtex'
 " YouCompleteMe
 Plug 'ycm-core/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
+" coc.vim
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+
 call plug#end()
 
