@@ -10,6 +10,7 @@ alias qmake-win='i686-w64-mingw32.static-qmake-qt5'
 alias qmake-win64='x86_64-w64-mingw32.static-qmake-qt5'
 alias wg='wordgrinder'
 alias df='pydf'
+alias yt-dl='youtube-dl'
 
 # system76-power
 alias profile="system76-power profile"
@@ -78,6 +79,8 @@ alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,
 alias mnt-akagi='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //192.168.18.144/akagi-home /media/akagi'
 alias umnt-akagi='sudo umount /media/akagi'
 alias umnt-hdd='sudo umount /media/exhdd'
+alias mnt-flpy='sudo mount -o loop,uid=$UID -t vfat ~/VirtualBox\ VMs/DOS/transfer.img /mnt/floppy'
+alias umnt-flpy='sudo umount /mnt/floppy'
 
 # Project aliases and variables
 export akltn="/home/elskiee/Projects/Aklatan"
