@@ -105,3 +105,4 @@ PATH="$HOME/.scripts:$HOME/Other/mxe-64/usr/bin:$HOME/.local/bin:$PATH"
 export PATH
 WIKI=/home/elskiee/Dropbox/wiki
 export WIKI 
+SPACESHIP_NODE_SHOW=false
