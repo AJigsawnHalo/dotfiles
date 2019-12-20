@@ -17,8 +17,6 @@ alias profile="system76-power profile"
 alias graphics="system76-power graphics"
 
 # cd aliases
-alias cd.='cd ..'
-alias cd~='cd ~'
 alias cdtmp='cd /tmp'
 alias cdlog='cd /var/log'
 alias cddot='cd ~/dotfiles'
