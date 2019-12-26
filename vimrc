@@ -165,5 +165,6 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " coc.vim
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
+Plug 'cespare/vim-toml'
 call plug#end()
 
