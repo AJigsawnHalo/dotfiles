@@ -36,12 +36,12 @@ let maplocalleader= "\<Space>"
 
 " Gui options
 if has('gui_running')
-	set guifont=Source\ Code\ Pro\ 10
+	set guifont=Source\ Code\ Pro\ 9
 	set guioptions -=T
 	set guioptions -=m
 	set guioptions -=L
 	set guioptions -=r
-	set lines=42 columns=150
+	set lines=100 columns=114
 endif
 
 " Custom Commands
