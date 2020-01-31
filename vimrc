@@ -41,7 +41,7 @@ if has('gui_running')
 	set guioptions -=m
 	set guioptions -=L
 	set guioptions -=r
-	set lines=100 columns=114
+	set lines=50 columns=150
 endif
 
 " Custom Commands
