@@ -60,6 +60,8 @@ alias soryu='ssh soryu'
 alias buildbox='ssh lfs-system'
 alias lfs='ssh lfs-build'
 alias tsukushi='ssh tsukushi'
+alias kumano='ssh kumano -Y'
+alias aoba='ssh aoba -Y'
 
 # tmux Aliases
 #alias tmux="tmux -2"
