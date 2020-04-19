@@ -1,7 +1,7 @@
 ##### User Aliases #####
 alias spdtstr='speedtest-cli --server 12210 --share'
 alias spdtst='speedtest-cli --share --server 7167'
-alias i3conf='vim  ~/.config/regolith/i3/config'
+alias i3conf='vim  ~/.config/i3/config'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias temp='sensors'
