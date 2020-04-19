@@ -64,9 +64,9 @@ bindsym $mod+F1 exec pavucontrol
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec brave
-bindsym $mod+F3 exec nemo
-bindsym $mod+Shift+F3 exec gksu nemo
+bindsym $mod+F2 exec fi#refox
+bindsym $mod+F3 exec thunar
+bindsym $mod+Shift+F3 exec gksu thunar
 bindsym $mod+Ctrl+F3 exec nautilus
 #bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -202,7 +202,7 @@ bindsym $mod+Next move workspace to output right
 bindsym $mod+Prior move workspace to output left
 
 # Open applications on specific workspaces
- #assign [class="discord"] $ws3
+ assign [class="discord"] $ws3
  assign [class="Firefox"] $ws2
  assign [class="Caprine"] $ws3
  assign [class="Spotify"] $ws5
@@ -246,28 +246,28 @@ for_window [class="Steam"] floating enable border normal
 for_window [class="Viewnior"] floating enable border normal
 
 # Setup Dropdown Terminal
-for_window [title="dropdown"] floating enable
-for_window [title="dropdown"] move scratchpad
-for_window [title="dropdown"] border pixel 4
-for_window [title="dropdown"] resize set 1600 900
-bindsym $mod+Tab [title="dropdown"] scratchpad show; [title="dropdown"] move position center
-bindsym $mod+F12 [title="dropdown"] scratchpad show; [title="dropdown"] move position center
-exec_always --no-startup-id "mate-terminal -t dropdown -e 'tmux -2 new -s dropdown' --profile=Default"
+#for_window [title="dropdown"] floating enable
+#for_window [title="dropdown"] move scratchpad
+#for_window [title="dropdown"] border pixel 4
+#for_window [title="dropdown"] resize set 1600 900
+#bindsym $mod+Tab [title="dropdown"] scratchpad show; [title="dropdown"] move position center
+#bindsym $mod+F12 [title="dropdown"] scratchpad show; [title="dropdown"] move position center
+#exec_always --no-startup-id "mate-terminal -t dropdown -e 'tmux -2 new -s dropdown' --profile=Default"
 
 # Setup Caprine Scratchpad
-for_window [class="Caprine"] floating enable
-for_window [class="Caprine"] move scratchpad
-for_window [class="Caprine"] border pixel 4
-for_window [class="Caprine"] resize set 1600 900
-bindsym $mod+c [class="Caprine"] scratchpad show; [class="Caprine"] move position center
+#for_window [class="Caprine"] floating enable
+#for_window [class="Caprine"] move scratchpad
+#for_window [class="Caprine"] border pixel 4
+#for_window [class="Caprine"] resize set 1600 900
+#bindsym $mod+c [class="Caprine"] scratchpad show; [class="Caprine"] move position center
 
 # Setup discord Scratchpad
-for_window [class="discord"] floating enable
-for_window [class="discord"] move scratchpad
-for_window [class="discord"] border pixel 4
-for_window [class="discord"] resize set 1600 900
-bindsym $mod+grave [class="discord"] scratchpad show; [class="discord"] move position center
-exec_always --no-startup-id discord
+#for_window [class="discord"] floating enable
+#for_window [class="discord"] move scratchpad
+#for_window [class="discord"] border pixel 4
+#for_window [class="discord"] resize set 1600 900
+#bindsym $mod+grave [class="discord"] scratchpad show; [class="discord"] move position center
+#exec_always --no-startup-id discord
 
 
 
@@ -341,7 +341,7 @@ exec --no-startup-id xautolock -time 90 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id  xinput --set-prop 17 'libinput Natural Scrolling Enabled' 1
-exec_always --no-startup-id  xinput --set-prop 13 'libinput Natural Scrolling Enabled' 1
+exec_always --no-startup-id  xinput --set-prop 11 'libinput Natural Scrolling Enabled' 1
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
