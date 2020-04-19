@@ -10,5 +10,6 @@ alias upgd='yay -Syyu  --nodiffmenu --noeditmenu '
 alias yay='yay --noeditmenu --nodiffmenu' 
 alias updt='yay -Syy'
 alias orph='sudo pacman -Rns $(pacman -Qtdq)'
+alias mirror-update='sudo reflector -l 5 -p http --save /etc/pacman.d/mirrorlist -c'
 
 
