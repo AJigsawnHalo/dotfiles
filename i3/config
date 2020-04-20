@@ -203,7 +203,7 @@ bindsym $mod+Prior move workspace to output left
 
 # Open applications on specific workspaces
  assign [class="discord"] $ws3
- assign [class="Firefox"] $ws2
+ assign [class="firefox"] $ws2
  assign [class="Caprine"] $ws3
  assign [class="Spotify"] $ws5
  assign [class="Steam"]   $ws8
