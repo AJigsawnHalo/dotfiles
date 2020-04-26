@@ -33,6 +33,11 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	sudo pacman -Sy curl git tmux zsh vim wget
+	mkdir -p ~/Other/src
+	cd ~/Other/src
+	git clone https://aur.archlinux.org/yay.git yay
+	cd yay
+	makepkg -si	
 fi
 
 # Clone the dotfiles git if it's not found
