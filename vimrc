@@ -107,6 +107,13 @@ let g:tex_flavor = 'latex'
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" CoC.nvim options
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 " Calendar-vim options
 let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
 "let g:calendar_first_day='monday'
@@ -159,11 +166,11 @@ Plug 'rainglow/vim'
 Plug 'lervag/vimtex'
 
 " YouCompleteMe
-Plug 'ycm-core/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " coc.vim
-"Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
 Plug 'cespare/vim-toml'
 call plug#end()
