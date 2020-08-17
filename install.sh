@@ -45,7 +45,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt install /tmp/discord.deb spotify-client codium ubuntu-restricted-extras
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
-	sudo pacman -Sy curl git tmux zsh vim wget
+	sudo pacman -Sy curl git tmux zsh vim wget base-devel materia-gtk-theme papirus-icon-theme
 	## yay installation
 	mkdir -p ~/Other/src
 	cd ~/Other/src
@@ -54,6 +54,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	cd yay
 	makepkg -si	
 	cd ~
+	yay -Sy discord spotify code
 fi
 
 # Clone the dotfiles git if it's not found
