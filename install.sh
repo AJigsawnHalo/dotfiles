@@ -72,11 +72,6 @@ if [ ! -f $HOME/.dotfiles ]; then
 	git clone https://github.com/AJigsawnHalo/dotfiles.git .dotfiles
 fi
 
-# Clone the Wiki/vimnotes git if it's not found
-if [ ! -f $HOME/Wiki ]; then
-	echo "Wiki directory not found. Cloning git repo."
-	git clone https://github.com/AJigsawnHalo/vimnotes.git Wiki
-fi
 # Download plugins and themes for vim and zsh
 
 # Oh-My-ZSH
