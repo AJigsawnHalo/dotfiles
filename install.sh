@@ -29,6 +29,8 @@ echo "The OS is $OS $VER"
 echo "Checking for required packages"
 # For Debian-based distros
 if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
+	## Update Installed Packages
+	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
 	sudo add-apt-repository ppa:papirus/papirus
 	sudo apt install build-essential curl git tmux zsh vim wget papirus-icon-theme materia-gtk-theme
@@ -45,7 +47,10 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt install /tmp/discord.deb spotify-client codium ubuntu-restricted-extras
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
-	sudo pacman -Sy curl git tmux zsh vim wget base-devel materia-gtk-theme papirus-icon-theme
+	## Update Installed Packages
+	sudo pacman -Syu
+	## Install Essential Packages
+	sudo pacman -S curl git tmux zsh vim wget base-devel materia-gtk-theme papirus-icon-theme
 	## yay installation
 	mkdir -p ~/Other/src
 	cd ~/Other/src
@@ -54,7 +59,11 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	cd yay
 	makepkg -si	
 	cd ~
-	yay -Sy discord spotify code
+	## Install Additional/Proprietary Packages
+	### Import gpg key for Spotify
+	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+	### Install packages
+	yay -Sy discord spotify-dev code
 fi
 
 # Clone the dotfiles git if it's not found
