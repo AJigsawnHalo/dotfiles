@@ -63,7 +63,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	### Import gpg key for Spotify
 	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify-dev code
+	yay -Sy discord spotify-dev visual-studio-code-bin
 fi
 
 # Clone the dotfiles git if it's not found
