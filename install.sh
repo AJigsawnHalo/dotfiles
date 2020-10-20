@@ -35,16 +35,17 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo add-apt-repository ppa:papirus/papirus
 	sudo apt install build-essential curl git tmux zsh vim wget papirus-icon-theme materia-gtk-theme
 	## Install Additional/Proprietary Packages
-	### VSCodium
-	wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add - 
-	echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list.d/vscodium.list 
+	### VSCode
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+	sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 	### Spotify
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+	curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	### Discord
 	wget --content-disposition 'https://discord.com/api/download?platform=linux&format=deb' -O /tmp/discord.deb
 
-	sudo apt update && sudo apt install /tmp/discord.deb spotify-client codium ubuntu-restricted-extras
+	sudo apt update && sudo apt install /tmp/discord.deb spotify-client code ubuntu-restricted-extras
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	## Update Installed Packages
