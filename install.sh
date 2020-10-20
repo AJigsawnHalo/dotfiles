@@ -64,20 +64,21 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
 	yay -Sy discord spotify-dev visual-studio-code-bin
+# RHEL based distros
 elif [ "$OS" == "Fedora" ]; then
 	## Update to fastest mirror
 	sudo dnf config-manager --setopt=fastestmirror=True --save
 	## Update Installed Packages
-	sudo dnf check-update && sudo dnf upgrade -y
+	sudo dnf upgrade -y
 	## Enable repositories
-	sudo dnf install dnf-plugins-core
+	sudo dnf install dnf-plugins-core -y
 	### Add RPM Fusion repos
-	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-	sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+	sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 	### Add themes copr
-	sudo dnf copr enable tcg/themes
+	sudo dnf copr enable tcg/themes -y
 	### Add Discord copr
-	sudo dnf copr enable tcg/discord
+	sudo dnf copr enable tcg/discord -y
 	### Add vscode repo
 	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'	
@@ -85,7 +86,8 @@ elif [ "$OS" == "Fedora" ]; then
 	sudo dnf check-update
 	## Install Essential Packages
 	sudo dnf -y groupinstall "Development Tools"
-	sudo dnf install zsh curl neovim vim papirus-icon-theme materia-gtk-theme tmux code lpf-spotify-client Discord-installer
+	sudo dnf install zsh curl neovim vim papirus-icon-theme materia-gtk-theme tmux code lpf-spotify-client Discord-installer -y
+	lpf update
 fi
 
 # Clone the dotfiles git if it's not found
