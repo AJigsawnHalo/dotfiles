@@ -33,7 +33,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
 	sudo add-apt-repository ppa:papirus/papirus
-	sudo apt install build-essential curl git tmux zsh vim wget papirus-icon-theme materia-gtk-theme
+	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme
 	## Install Additional/Proprietary Packages
 	### VSCode
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -51,7 +51,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	## Update Installed Packages
 	sudo pacman -Syu
 	## Install Essential Packages
-	sudo pacman -S curl git tmux zsh vim wget base-devel materia-gtk-theme papirus-icon-theme
+	sudo pacman -S curl git tmux zsh neovim wget base-devel materia-gtk-theme papirus-icon-theme
 	## yay installation
 	mkdir -p ~/Other/src
 	cd ~/Other/src
@@ -119,5 +119,15 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	ln -sfv $HOME/.dotfiles/pacmanAliases ~/.packman_aliases
 fi
 
-echo ""
-echo "Install Complete."
+# Use vimrc for neovim
+mkdir ~/.config/nvim
+echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
+	let &packpath = &runtimepath\n\
+	source ~/.vimrc" >> ~/.config/nvim/init.vim
+# Install vim-plug plugins
+	vim -c 'PlugInstall|q'
+	vim -c 'CocInstall -sync coc-sh coc-marketplace \
+		coc-rls coc-powershell coc-godot \
+		coc-clangd coc-vimlsp coc-tsserver \
+		coc-python coc-git coc-cord|q'
+echo -e "\nInstall Complete."
