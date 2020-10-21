@@ -179,5 +179,7 @@ Plug 'lervag/vimtex'
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 
 Plug 'cespare/vim-toml'
+
+Plug 'https://github.com/zigford/vim-powershell.git'
 call plug#end()
 
