@@ -33,7 +33,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
 	sudo add-apt-repository ppa:papirus/papirus
-	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme
+	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme nodejs npm
 	## Install Additional/Proprietary Packages
 	### VSCode
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -51,7 +51,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	## Update Installed Packages
 	sudo pacman -Syu
 	## Install Essential Packages
-	sudo pacman -S curl git tmux zsh neovim wget base-devel materia-gtk-theme papirus-icon-theme
+	sudo pacman -S curl git tmux zsh neovim wget base-devel materia-gtk-theme papirus-icon-theme nodejs npm
 	## yay installation
 	mkdir -p ~/Other/src
 	cd ~/Other/src
@@ -125,6 +125,7 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	let &packpath = &runtimepath\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
+	sudo npm install -g yarn
 	vim -c 'PlugInstall|q'
 	vim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
