@@ -60,14 +60,23 @@ function prompt {
 
 Set-Alias make mingw32-make
 
-function gpshom {
-	git push origin master
+# Git functions
+function gpsho {
+	param(
+		[array] $ArgList
+	)
+	ForEach ($Arg in $ArgList) {
+		git push origin $Arg
+	}	
 }
-
-function gpllom {
-	git pull origin master
+function gpllo {
+	param(
+		[array] $ArgList
+	)
+	ForEach ($Arg in $ArgList) {
+		git pull origin $Arg
+	}	
 }
-
 function gcmmt {
 	git commit
 }
