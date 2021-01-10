@@ -59,3 +59,15 @@ function prompt {
 }
 
 Set-Alias make mingw32-make
+
+function gpshom {
+	git push origin master
+}
+
+function gpllom {
+	git pull origin master
+}
+
+function gcmmt {
+	git commit
+}
