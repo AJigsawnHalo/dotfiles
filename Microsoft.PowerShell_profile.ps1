@@ -3,10 +3,10 @@ function akagi{
 	ssh -p 1991 elskiee@192.168.18.144
 }
 function akagi-pub{
-	ssh -p 1991 elskiee@kaga-cloud.ddns.net
+	ssh -p 1991 elskiee@kaga-server.ddns.net
 }
 function kaga{
-	ssh nightlock0326@kaga-cloud.ddns.net
+	ssh nightlock0326@kaga-server.ddns.net -p 1992
 }
 function pwsh-a{
 	Start-Process pwsh -Verb RunAs
@@ -53,10 +53,13 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
     Set-Alias ls Get-ChildItemColorFormatWide -option AllScope
 }
 
-function prompt {
-    Write-Host "PSC $(Get-Location) "
-    return "> "
-}
+#function prompt {
+#    Write-Host "PSC $(Get-Location) "
+#    return "> "
+#}
+Import-Module posh-git
+Import-Module oh-my-posh
+Set-Theme Paradox
 
 Set-Alias make mingw32-make
 
