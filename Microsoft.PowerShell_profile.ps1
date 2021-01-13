@@ -59,7 +59,7 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
 #}
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme Paradox
+Set-Theme Star
 
 Set-Alias make mingw32-make
 
