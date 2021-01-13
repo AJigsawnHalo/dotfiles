@@ -33,6 +33,10 @@ set foldlevelstart=5
 set timeoutlen=3000
 set noshowmode 
 let maplocalleader= "\<Space>"
+if has('win64')
+	set shell=pwsh.exe
+endif
+
 
 " Gui options
 if has('gui_running')
@@ -52,7 +56,7 @@ command CdWiki cd ~/Wiki
 " Custom Keybinds
 nnoremap <leader><space> :nohlsearch<CR> 
 map <C-o> :NERDTreeToggle<CR>
-nnoremap <leader>t :bel terminal<CR>
+nnoremap <leader>t :sp <Bar> terminal<CR>
 nnoremap <leader>vt :vert terminal<CR>
 nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>ycm :YcmGenerateConfig<CR>
@@ -60,8 +64,18 @@ nnoremap <leader>ycm :YcmGenerateConfig<CR>
 nnoremap <leader>cr :!cargo run<CR>
 nnoremap <leader>cb :!cargo build<CR>
 
+augroup terminal_settings
+    autocmd!
+	autocmd TermOpen term://* startinsert
+    autocmd BufLeave term://* stopinsert
 
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    " Ignore various filetypes as those will close terminal automatically
+    " Ignore fzf, ranger, coc
+    autocmd TermClose term://*
+          \ if (expand('<afile>') !~ "fzf") && (expand('<afile>') !~ "ranger") && (expand('<afile>') !~ "coc") |
+          \   call nvim_input('<CR>')  |
+          \ endif
+  augroup END"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Plugin Options     plug-opt
 
 " i3conf syntax detection
