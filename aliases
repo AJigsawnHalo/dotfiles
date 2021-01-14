@@ -11,6 +11,16 @@ alias qmake-win64='x86_64-w64-mingw32.static-qmake-qt5'
 alias wg='wordgrinder'
 alias df='pydf'
 alias yt-dl='youtube-dl'
+alias nya-w='nyaadle tui --watch-list'
+alias nya-l='nvim ~/.config/nyaadle/nyaadle.log'
+
+### Transmission Aliases
+alias transm-start='transm -t all -s'
+alias transm-stop='transm -t all -S'
+alias transm-s-start='sudo systemctl start transmission-daemon'
+alias transm-s-stop='sudo systemctl stop transmission-daemon'
+alias transm-dl='wget -P ~/exhdd/transmission/torrent-ingest/'
+
 
 # system76-power
 alias profile="system76-power profile"

@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.aliases
 source ~/.packman_aliases
+source ~/.aliases_secret
 DEFAULT_USER="elskiee"
 bindkey -v
 export KEYTIMEOUT=1
