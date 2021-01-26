@@ -33,9 +33,9 @@ set foldlevelstart=5
 set timeoutlen=3000
 set noshowmode 
 let maplocalleader= "\<Space>"
-if has('win64')
-	set shell=pwsh.exe
-endif
+"if has('win64')
+"	set shell=pwsh.exe
+"endif
 
 
 " Gui options
@@ -195,5 +195,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cespare/vim-toml'
 
 Plug 'https://github.com/zigford/vim-powershell.git'
+Plug 'https://github.com/tpope/vim-fugitive'
 call plug#end()
 
