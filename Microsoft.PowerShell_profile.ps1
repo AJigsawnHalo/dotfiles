@@ -1,6 +1,6 @@
 # ssh functions
 function akagi{
-	ssh -p 1991 elskiee@192.168.18.144
+	ssh -p 1991 elskiee@192.168.1.144
 }
 function akagi-pub{
 	ssh -p 1991 elskiee@kaga-server.ddns.net
@@ -59,7 +59,7 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
 #}
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme Star
+Set-PoshPrompt Star
 
 Set-Alias make mingw32-make
 
@@ -82,4 +82,10 @@ function gpllo {
 }
 function gcmmt {
 	git commit
+}
+function reboot {
+	shutdown /r /f /t 0
+}
+function poweroff {
+	shutdown /s /f /t 0
 }
