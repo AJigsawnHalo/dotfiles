@@ -62,6 +62,7 @@ Import-Module oh-my-posh
 Set-PoshPrompt Star
 
 Set-Alias make mingw32-make
+Set-Alias vim nvim
 
 # Git functions
 function gpsho {
