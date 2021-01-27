@@ -130,5 +130,5 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	vim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
-		coc-python coc-git coc-cord|q'
+		coc-pyright coc-git coc-cord|q'
 echo -e "\nInstall Complete."
