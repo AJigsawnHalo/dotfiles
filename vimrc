@@ -196,5 +196,6 @@ Plug 'cespare/vim-toml'
 
 Plug 'https://github.com/zigford/vim-powershell.git'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'kevinoid/vim-jsonc'
 call plug#end()
 
