@@ -18,28 +18,13 @@ function ln ($target, $link) {
     New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
 function upgd{
-	param(
-		[array] $AppList
-	)
-	ForEach ($App in $AppList) {
-		scoop update $App
-	}
+	scoop update $args
 }
 function inst{
-	param(
-		[array] $AppList
-	)
-	ForEach ($App in $AppList) {
-		scoop install $App
-	}
+	scoop install $args
 }
 function remo{
-	param(
-		[array] $AppList
-	)
-	ForEach ($App in $AppList) {
-		scoop uninstall $App
-	}
+	scoop uninstall $args
 }
 function updt{
 	scoop update && scoop status
@@ -66,24 +51,21 @@ Set-Alias vim nvim
 
 # Git functions
 function gpsho {
-	param(
-		[array] $ArgList
-	)
-	ForEach ($Arg in $ArgList) {
-		git push origin $Arg
-	}	
+		git push origin $args[0]
 }
 function gpllo {
-	param(
-		[array] $ArgList
-	)
-	ForEach ($Arg in $ArgList) {
-		git pull origin $Arg
-	}	
+		git pull origin $args[0]
 }
 function gcmmt {
-	git commit
+	git commit $args
 }
+function gco {
+	$branch = $args[1]
+	$param = $args[0]
+	git checkout $param $branch
+} 
+
+
 function reboot {
 	shutdown /r /f /t 0
 }
