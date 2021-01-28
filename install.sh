@@ -94,6 +94,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# Rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Create symlinks
 echo "Creating symlinks"
 if [ "$ARG" == "i3" ]; then
