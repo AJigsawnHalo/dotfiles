@@ -70,7 +70,7 @@ fi
 # Clone the dotfiles git if it's not found
 if [ ! -f $HOME/.dotfiles ]; then
 	echo "Dotfiles directory not found. Cloning git repo."
-	git clone https://gitlab.com/AJigsawnHalo/dotfiles.git .dotfiles
+	git clone https://github.com/AJigsawnHalo/dotfiles.git .dotfiles
 fi
 
 # Download plugins and themes for vim and zsh
@@ -132,8 +132,8 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
 	sudo npm install -g yarn
-	vim -c 'PlugInstall|q'
-	vim -c 'CocInstall -sync coc-sh coc-marketplace \
+	nvim -c 'PlugInstall|q'
+	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
