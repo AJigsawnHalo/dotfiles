@@ -62,9 +62,9 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	cd ~
 	## Install Additional/Proprietary Packages
 	### Import gpg key for Spotify
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify-dev visual-studio-code-bin
+	yay -Sy discord spotify visual-studio-code-bin
 fi
 
 # Clone the dotfiles git if it's not found
