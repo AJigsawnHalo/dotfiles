@@ -62,15 +62,15 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	cd ~
 	## Install Additional/Proprietary Packages
 	### Import gpg key for Spotify
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify-dev visual-studio-code-bin
+	yay -Sy discord spotify visual-studio-code-bin
 fi
 
 # Clone the dotfiles git if it's not found
 if [ ! -f $HOME/.dotfiles ]; then
 	echo "Dotfiles directory not found. Cloning git repo."
-	git clone https://gitlab.com/AJigsawnHalo/dotfiles.git .dotfiles
+	git clone https://github.com/AJigsawnHalo/dotfiles.git .dotfiles
 fi
 
 # Download plugins and themes for vim and zsh
@@ -93,6 +93,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Create symlinks
 echo "Creating symlinks"
@@ -129,8 +132,8 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
 	sudo npm install -g yarn
-	vim -c 'PlugInstall|q'
-	vim -c 'CocInstall -sync coc-sh coc-marketplace \
+	nvim -c 'PlugInstall|q'
+	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
