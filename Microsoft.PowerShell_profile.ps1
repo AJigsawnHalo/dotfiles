@@ -18,13 +18,13 @@ function ln ($target, $link) {
     New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
 function upgd{
-	scoop update $args
+	scoop update @args
 }
 function inst{
-	scoop install $args
+	scoop install @args
 }
 function remo{
-	scoop uninstall $args
+	scoop uninstall @args
 }
 function updt{
 	scoop update && scoop status
@@ -57,7 +57,7 @@ function gpllo {
 		git pull origin $args[0]
 }
 function gcmmt {
-	git commit $args
+	git commit @args
 }
 function gco {
 	$branch = $args[1]
