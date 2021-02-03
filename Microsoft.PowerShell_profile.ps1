@@ -43,8 +43,9 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
 #    return "> "
 #}
 Import-Module posh-git
-Import-Module oh-my-posh
-Set-PoshPrompt Star
+#Import-Module oh-my-posh
+#Set-PoshPrompt Star
+Invoke-Expression (&starship init powershell)
 
 Set-Alias make mingw32-make
 Set-Alias vim nvim
