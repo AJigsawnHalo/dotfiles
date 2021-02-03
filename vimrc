@@ -63,7 +63,9 @@ nnoremap <leader>ycm :YcmGenerateConfig<CR>
 "" Rust keybinds
 nnoremap <leader>cr :!cargo run<CR>
 nnoremap <leader>cb :!cargo build<CR>
-
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gv :vsp<CR><Plug>(coc-definition)
+nmap <silent> <leader>gs :sp<CR><Plug>(coc-definition)
 augroup terminal_settings
     autocmd!
 	autocmd TermOpen term://* startinsert
