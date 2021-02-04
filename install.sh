@@ -86,10 +86,7 @@ elif [ "$OS" == "Fedora" ]; then
 	## Install Essential Packages
 	sudo dnf -y groupinstall "Development Tools"
 	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code lpf-spotify-client snapd -y
-	lpf update
 	sudo ln -s /var/lib/snapd/snap /snap
-	### Install Discord
-	sudo snap install discord
 fi
 
 # Clone the dotfiles git if it's not found
@@ -159,10 +156,14 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	let &packpath = &runtimepath\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
-	sudo npm install -g yarn
 	nvim -c 'PlugInstall|q'
+if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
+	sudo npm install -g yarn
 	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
+elif [ "$OS" == "Fedora" ]; then
+	echo -e "Restart System then run: fedora_part2.sh"
+fi
 echo -e "\nInstall Complete."
