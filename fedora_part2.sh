@@ -5,8 +5,7 @@ sudo snap install discord spotify
 
 # Install nodejs
 dnf module list nodejs
-echo -e "Pick a node version:"
-read $ver
+read -p "Enter version: " ver
 sudo dnf module install nodejs:$ver
 
 # Install Coc extensions
