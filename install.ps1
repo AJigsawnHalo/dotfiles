@@ -42,5 +42,6 @@ New-Item -Path $PROFILE -ItemType SymbolicLink -Value $HOME/.dotfiles/Microsoft.
 New-Item -Path $HOME/.vimrc -ItemType SymbolicLink -Value $HOME/.dotfiles/vimrc
 mkdir $HOME/AppData/Local/nvim
 New-Item -Path $HOME/AppData/Local/nvim/init.vim -ItemType SymbolicLink -Value $HOME/.dotfiles/init_win.vim
+New-Item -Path $HOME/.starship.toml -ItemType SymbolicLink -Value $HOME/.dotfiles/starship.toml
 
 echo "Install Complete."
