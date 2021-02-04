@@ -33,7 +33,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
 	sudo add-apt-repository ppa:papirus/papirus
-	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme
+	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme nodejs npm
 	## Install Additional/Proprietary Packages
 	### VSCode
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -51,7 +51,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	## Update Installed Packages
 	sudo pacman -Syu
 	## Install Essential Packages
-	sudo pacman -S curl git tmux zsh neovim wget base-devel materia-gtk-theme papirus-icon-theme
+	sudo pacman -S curl git tmux zsh neovim wget base-devel materia-gtk-theme papirus-icon-theme nodejs npm
 	## yay installation
 	mkdir -p ~/Other/src
 	cd ~/Other/src
@@ -62,9 +62,9 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	cd ~
 	## Install Additional/Proprietary Packages
 	### Import gpg key for Spotify
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
+	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify-dev visual-studio-code-bin
+	yay -Sy discord spotify visual-studio-code-bin
 # RHEL-based distros
 elif [ "$OS" == "Fedora" ]; then
 	## Update to fastest mirror
@@ -115,6 +115,12 @@ echo "Installing Vim-plug plugin manager"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # Create symlinks
 echo "Creating symlinks"
 if [ "$ARG" == "i3" ]; then
@@ -152,9 +158,10 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	let &packpath = &runtimepath\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
-	vim -c 'PlugInstall|q'
-	vim -c 'CocInstall -sync coc-sh coc-marketplace \
+	sudo npm install -g yarn
+	nvim -c 'PlugInstall|q'
+	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
-		coc-python coc-git coc-cord|q'
+		coc-pyright coc-git coc-cord|q'
 echo -e "\nInstall Complete."
