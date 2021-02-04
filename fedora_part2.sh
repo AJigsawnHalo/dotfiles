@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Run lpf to finish spotify install
-lpf update
-
 # Install Discord
-sudo snap install discord
+sudo snap install discord spotify
 
 # Install nodejs
 dnf module list nodejs

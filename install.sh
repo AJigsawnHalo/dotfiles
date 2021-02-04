@@ -85,9 +85,8 @@ elif [ "$OS" == "Fedora" ]; then
 	sudo dnf check-update
 	## Install Essential Packages
 	sudo dnf -y groupinstall "Development Tools"
-	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code lpf-spotify-client snapd -y
+	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code snapd -y
 	sudo ln -s /var/lib/snapd/snap /snap
-	lpf update
 fi
 
 # Clone the dotfiles git if it's not found
