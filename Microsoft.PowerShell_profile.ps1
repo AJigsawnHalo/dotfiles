@@ -38,6 +38,7 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
     Set-Alias ls Get-ChildItemColorFormatWide -option AllScope
 }
 
+# Prompt
 #function prompt {
 #    Write-Host "PSC $(Get-Location) "
 #    return "> "
@@ -45,6 +46,7 @@ If (-Not (Test-Path Variable:PSise)) {  # Only run this in the console and not i
 Import-Module posh-git
 #Import-Module oh-my-posh
 #Set-PoshPrompt Star
+$ENV:STARSHIP_CONFIG = "$HOME\.starship.toml"
 Invoke-Expression (&starship init powershell)
 
 Set-Alias make mingw32-make

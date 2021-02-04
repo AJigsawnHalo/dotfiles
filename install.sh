@@ -65,6 +65,28 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
 	yay -Sy discord spotify visual-studio-code-bin
+# RHEL-based distros
+elif [ "$OS" == "Fedora" ]; then
+	## Update to fastest mirror
+	sudo dnf config-manager --setopt=fastestmirror=True --save
+	## Update Installed Packages
+	sudo dnf upgrade -y
+	## Enable repositories
+	sudo dnf install dnf-plugins-core -y
+	### Add RPM Fusion repos
+	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+	sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+	### Add themes copr
+	sudo dnf copr enable tcg/themes -y
+	### Add vscode repo
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'	
+	### Refresh package list
+	sudo dnf check-update
+	## Install Essential Packages
+	sudo dnf -y groupinstall "Development Tools"
+	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code snapd -y
+	sudo ln -s /var/lib/snapd/snap /snap
 fi
 
 # Clone the dotfiles git if it's not found
@@ -123,6 +145,9 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	ln -sfv $HOME/.dotfiles/pacmanAliases ~/.packman_aliases
+# For RHEL-based distros
+elif [ "$OS" == "Fedora" ]; then
+	ln -sfv $HOME/.dotfiles/dnfAliases ~/.packman_aliases
 fi
 
 # Use vimrc for neovim
@@ -131,10 +156,14 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	let &packpath = &runtimepath\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
-	sudo npm install -g yarn
 	nvim -c 'PlugInstall|q'
+if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
+	sudo npm install -g yarn
 	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
+elif [ "$OS" == "Fedora" ]; then
+	echo -e "Restart System then run: fedora_part2.sh"
+fi
 echo -e "\nInstall Complete."
