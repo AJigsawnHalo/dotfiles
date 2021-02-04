@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install Discord
+sudo snap info spotify
 sudo snap install discord spotify
 
 # Install nodejs
@@ -14,3 +15,4 @@ nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
+echo -e "\nInstall Complete."

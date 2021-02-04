@@ -163,7 +163,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
+	echo -e "\nInstall Complete."
 elif [ "$OS" == "Fedora" ]; then
 	echo -e "Restart System then run: fedora_part2.sh"
 fi
-echo -e "\nInstall Complete."
