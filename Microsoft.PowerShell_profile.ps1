@@ -5,8 +5,8 @@ function akagi{
 function akagi-pub{
 	ssh -p 1991 elskiee@kaga-server.ddns.net
 }
-function kaga{
-	ssh nightlock0326@kaga-server.ddns.net -p 1992
+function soryu{
+	ssh -p 1992 elskiee@zuiho.local
 }
 function pwsh-a{
 	Start-Process pwsh -Verb RunAs
