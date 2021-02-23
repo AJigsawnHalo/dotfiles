@@ -1,12 +1,12 @@
 # ssh functions
 function akagi{
-	ssh -p 1991 elskiee@192.168.1.144
+	ssh -p 1991 elskiee@akagi-pi.local
 }
 function akagi-pub{
 	ssh -p 1991 elskiee@kaga-server.ddns.net
 }
 function soryu{
-	ssh -p 1992 elskiee@zuiho.local
+	ssh -p 1992 elskiee@soryu.local
 }
 function pwsh-a{
 	Start-Process pwsh -Verb RunAs
