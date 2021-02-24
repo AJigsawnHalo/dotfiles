@@ -44,8 +44,11 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	### Discord
 	wget --content-disposition 'https://discord.com/api/download?platform=linux&format=deb' -O /tmp/discord.deb
+	### Sublime Text
+	curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
 
-	sudo apt update && sudo apt install /tmp/discord.deb spotify-client code ubuntu-restricted-extras
+	sudo apt update && sudo apt install /tmp/discord.deb spotify-client code ubuntu-restricted-extras sublime-text
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	## Update Installed Packages
@@ -64,7 +67,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	### Import gpg key for Spotify
 	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify visual-studio-code-bin
+	yay -Sy discord spotify visual-studio-code-bin sublime-text-3
 # RHEL-based distros
 elif [ "$OS" == "Fedora" ]; then
 	## Update to fastest mirror
@@ -81,11 +84,14 @@ elif [ "$OS" == "Fedora" ]; then
 	### Add vscode repo
 	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'	
+	### Add Sublime-text repo
+	sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+	sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 	### Refresh package list
 	sudo dnf check-update
 	## Install Essential Packages
 	sudo dnf -y groupinstall "Development Tools"
-	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code snapd -y
+	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code snapd sublime-text -y
 	sudo ln -s /var/lib/snapd/snap /snap
 fi
 
