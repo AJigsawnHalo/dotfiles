@@ -29,7 +29,7 @@ Install-Module -AllowClobber Get-ChildItemColor
 
 # Install Packages needed
 echo "Installing packages..."
-scoop install git neovim less grep bat wget gcc ffmpeg youtube-dl hwmonitor win32-openssh
+scoop install git neovim less grep bat wget gcc ffmpeg youtube-dl hwmonitor win32-openssh sublime-text
 choco install python3 pip jre8
 
 # Download dotfiles 
