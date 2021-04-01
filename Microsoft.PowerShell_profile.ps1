@@ -18,7 +18,12 @@ function ln ($target, $link) {
     New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
 function upgd{
-	scoop update @args
+	if ( $args -eq "-y") {
+		scoop update *
+	}
+	else {
+		scoop update @args
+	} 
 }
 function inst{
 	scoop install @args
