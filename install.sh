@@ -89,8 +89,18 @@ elif [ "$OS" == "Fedora" ]; then
 	sudo dnf check-update
 	## Install Essential Packages
 	sudo dnf -y groupinstall "Development Tools"
-	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code snapd sublime-text -y
-	sudo ln -s /var/lib/snapd/snap /snap
+	sudo dnf install zsh curl neovim papirus-icon-theme materia-gtk-theme tmux code sublime-text -y
+	# Install nodejs
+	dnf module list nodejs
+	read -p "Enter version: " ver
+	sudo dnf module install nodejs:$ver
+	# Install Flathub Repo
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo	
+
+	# Install Discord
+	flatpak install flathub com.discordapp.Discord	
+	# Install Spotify
+	flatpak install flathub com.spotify.Client
 fi
 
 # Clone the dotfiles git if it's not found
@@ -161,13 +171,11 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
 	nvim -c 'PlugInstall|q'
-if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
+if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ] || [
+	"$OS" == "Fedora" ]; then
 	sudo npm install -g yarn
 	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
 		coc-pyright coc-git coc-cord|q'
 	echo -e "\nInstall Complete."
-elif [ "$OS" == "Fedora" ]; then
-	echo -e "Restart System then run: fedora_part2.sh"
-fi
