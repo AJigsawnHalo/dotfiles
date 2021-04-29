@@ -1,12 +1,5 @@
 syntax on 
 
-" Colorschemes
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set background=dark
-colorscheme hybrid
-set t_Co=256
-set termguicolors
 
 " General options
 set path=.,/usr/include/,,**
@@ -165,7 +158,6 @@ let g:calendar_wruler = 'Mo Tu We Th Fr Sa Su'
 let g:org_agenda_files = ['~/Dropbox/wiki/org/tasks.org', '~/Dropbox/wiki/org/events.org', '~/Dropbox/wiki/projects/notpad.org']
 let g:org_todo_keywords=['TODO', 'PROGRESS', 'BLOCKED', 'REVIEW', '|', 'DONE', 'ARCHIVED', 'CANCELLED']
 
-
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Vim-Plug Plugins     vim-plug
 call plug#begin('~/.vim/plugged')
@@ -218,5 +210,14 @@ Plug 'cespare/vim-toml'
 Plug 'https://github.com/zigford/vim-powershell.git'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'kevinoid/vim-jsonc'
+Plug 'ghifarit53/tokyonight-vim'
 call plug#end()
+
+" Colorschemes
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+set termguicolors
+colorscheme tokyonight
+set t_Co=256
 
