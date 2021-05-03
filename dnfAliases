@@ -1,7 +1,7 @@
 # Package Management Aliases
 
 ## Debian-based Distros (dnf)
-alias upgd='sudo dnf check-update && sudo dnf upgrade'
+alias upgd='sudo dnf upgrade'
 alias inst='sudo dnf install'
 #alias addrepo='sudo dnf-add-repository'
 alias prge='sudo dnf purge'
