@@ -112,15 +112,17 @@ fi
 # Download plugins and themes for vim and zsh
 
 # Oh-My-ZSH
-echo "Installing Oh-My-Zsh"
-sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#echo "Installing Oh-My-Zsh"
+#sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Starship prompt
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 
 # ZSH Spaceship theme
-echo "Installing Zsh Spaceship theme"
-ZSH_CUSTOM="/home/elskiee/.oh-my-zsh/custom"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+#echo "Installing Zsh Spaceship theme"
+#ZSH_CUSTOM="/home/elskiee/.oh-my-zsh/custom"
+#git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+#ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # Vim-plug plugin manager
 echo "Installing Vim-plug plugin manager"
@@ -152,6 +154,8 @@ elif [ "$ARG" == "" ]; then
 	ln -sfv $HOME/.dotfiles/colors $HOME/.vim/colors
 fi
 
+ln -sfv $HOME/.dotfiles/starship.toml $HOME/.config/starship.toml
+
 # Create package management symlink for the appropriate distro
 # For Debian-based distros
 if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
@@ -171,8 +175,6 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	source ~/.vimrc" >> ~/.config/nvim/init.vim
 # Install vim-plug plugins
 	nvim -c 'PlugInstall|q'
-if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ] || [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ] || [
-	"$OS" == "Fedora" ]; then
 	sudo npm install -g yarn
 	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \

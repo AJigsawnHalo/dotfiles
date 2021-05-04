@@ -1,4 +1,4 @@
 add_newline = false
 
 [character]
-success_symbol = "[>](blue)"
+success_symbol = "[➜](blue)"
