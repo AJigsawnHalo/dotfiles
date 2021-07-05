@@ -19,6 +19,7 @@ function ln ($target, $link) {
 }
 function upgd{
 	if ( $args -eq "-y") {
+		scoop status
 		scoop update *
 	}
 	else {
