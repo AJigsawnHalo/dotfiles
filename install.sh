@@ -67,7 +67,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	### Import gpg key for Spotify
 	#curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
 	### Install packages
-	yay -Sy discord spotify visual-studio-code-bin sublime-text-3
+	yay -Sy discord spotify visual-studio-code-bin sublime-text-4
 # RHEL-based distros
 elif [ "$OS" == "Fedora" ]; then
 	## Update to fastest mirror
