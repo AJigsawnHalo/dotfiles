@@ -144,7 +144,8 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 	. ~/.packman_aliases
-	. ~/aliases_secret
+	. ~/.aliases_secret
 fi
 
-export PATH="/home/elskiee/.scripts:/home/elskiee/mxe/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/elskiee/.scripts:/home/elskiee/.vimpkg/bin"
+export PATH="/home/elskiee/.scripts:/home/elskiee/mxe/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/elskiee/.scripts:/home/elskiee/.vimpkg/bin:$PATH"
+. "$HOME/.cargo/env"
