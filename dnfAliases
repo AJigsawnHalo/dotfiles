@@ -8,5 +8,5 @@ alias prge='sudo dnf purge'
 alias remo='sudo dnf remove'
 alias aremo='sudo dnf autoremove'
 alias clean='sudo dnf clean'
-alias updt='sudo dnf check-update'
+alias updt='sudo dnf check-update --refresh'
 
