@@ -17,6 +17,15 @@ function cmd-a{
 function ln ($target, $link) {
     New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
+function clean{
+	if ( $args -eq "-a") {
+		scoop cache rm -a
+		scoop cleanup -a
+	}
+	else {
+		scoop cleanup @args
+	} 
+}
 function upgd{
 	if ( $args -eq "-y") {
 		scoop status
