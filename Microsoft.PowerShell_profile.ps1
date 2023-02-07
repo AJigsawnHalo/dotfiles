@@ -27,9 +27,22 @@ function clean{
 	} 
 }
 function upgd{
-	if ( $args -eq "-y") {
+	$update = {
 		scoop status
 		scoop update *
+	}
+	$script = {
+		Write-Host "Upgrading Scoop apps..."
+		scoop status
+		scoop update *
+		Write-Host "Upgrading winget apps..."
+		winget upgrade --all
+	}
+	if ( $args -eq "-y") {
+		$update
+	}
+	elseif ($args -eq "-a") {
+		Start-Process pwsh -Verb RunAs -ArgumentList "-noexit -command $script"
 	}
 	else {
 		scoop update @args
