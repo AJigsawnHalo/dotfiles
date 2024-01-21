@@ -17,7 +17,7 @@ function cmd-a{
 function ln ($target, $link) {
     New-Item -Path $link -ItemType SymbolicLink -Value $target
 }
-function clean{
+function cln{
 	if ( $args -eq "-a") {
 		scoop cache rm -a
 		scoop cleanup -a
@@ -31,11 +31,16 @@ function upgd{
 		Write-Host "Upgrading Scoop apps..."
 		scoop status
 		scoop update *
+		scoop cache rm -a
+		scoop cleanup -a
 	}
 	$script = {
 		Write-Host "Upgrading Scoop apps..."
 		scoop status
 		scoop update *
+		Write-Host "Cleaning Scoop apps..."
+		scoop cache rm -a
+		scoop cleanup -a
 		Write-Host "Upgrading winget apps..."
 		winget upgrade --all
 	}
