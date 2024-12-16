@@ -5,8 +5,8 @@ function akagi{
 function akagi-pub{
 	ssh -p 1991 elskiee@kaga-server.ddns.net
 }
-function soryu{
-	ssh -p 1992 elskiee@soryu.local
+function hiryu{
+	ssh -p 1991 elskiee@hiryu.local
 }
 function pwsh-a{
 	Start-Process pwsh -Verb RunAs
@@ -108,4 +108,8 @@ function reboot {
 }
 function poweroff {
 	shutdown /s /f /t 0
+}
+function copy-ssh-key {
+	$param = $args
+	cat $HOME\.ssh\id_ed25519.pub | ssh $param "cat >> .ssh/authorized_keys"
 }
