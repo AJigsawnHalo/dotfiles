@@ -196,7 +196,7 @@ Plug 'https://github.com/fedorenchik/qt-support.vim.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
 
 " Vim-obsession. For saving vim sessions
-Plug 'git://github.com/tpope/vim-obsession.git'
+Plug 'https://github.com/tpope/vim-obsession'
 
 " Bufexplorer
 Plug 'jlanzarotta/bufexplorer'
@@ -204,7 +204,7 @@ Plug 'jlanzarotta/bufexplorer'
 " Vim-orgmode and dependencies
 Plug 'jceb/vim-orgmode'
 Plug 'https://github.com/tpope/vim-speeddating'
-Plug 'git://github.com/mattn/calendar-vim'
+"Plug 'git://github.com/mattn/calendar-vim'
 "Plug 'git://github.com/itchyny/calendar.vim'
 Plug 'https://github.com/inkarkat/vim-SyntaxRange'
 Plug 'vim-scripts/utl.vim'
