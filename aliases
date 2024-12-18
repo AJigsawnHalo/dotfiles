@@ -84,10 +84,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lss='ls -s'
 
-# Akagi Server Mounts
+# Home Server Mounts
 alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //hiryu.local/exhdd /media/exhdd'
 alias mnt-soryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //hiryu.local/-home /media/hiryu'
-alias umnt-soryu='sudo umount /media/hiryu'
+alias umnt-hiryu='sudo umount /media/hiryu'
 alias umnt-hdd='sudo umount /media/exhdd'
 alias mnt-flpy='sudo mount -o loop,uid=$UID -t vfat ~/VirtualBox\ VMs/DOS/transfer.img /mnt/floppy'
 alias umnt-flpy='sudo umount /mnt/floppy'
@@ -95,3 +95,7 @@ alias umnt-flpy='sudo umount /mnt/floppy'
 # Project aliases and variables
 export akltn="/home/elskiee/Projects/Aklatan"
 alias akltn-dir="cd $akltn/Devel"
+
+# Calibre Library Sync
+alias sync-to-server="rsync -avzh --rsh='ssh -p 1991' /home/elskiee/Storage/src/Calibre\ Library/ elskiee@hiryu.local:/home/elskiee/Calibre\ Library/"
+alias sync-to-local="rsync -avzh --rsh='ssh -p 19921 elskiee@hiryu.local:/home/elskiee/Calibre\ Library/ /home/elskiee/Storage/src/Calibre\ Library/"
