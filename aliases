@@ -85,9 +85,9 @@ alias l='ls -CF'
 alias lss='ls -s'
 
 # Akagi Server Mounts
-alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //soryu.local/exhdd /media/exhdd'
-alias mnt-soryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //soryu.local/-home /media/soryu'
-alias umnt-soryu='sudo umount /media/soryu'
+alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //hiryu.local/exhdd /media/exhdd'
+alias mnt-soryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //hiryu.local/-home /media/hiryu'
+alias umnt-soryu='sudo umount /media/hiryu'
 alias umnt-hdd='sudo umount /media/exhdd'
 alias mnt-flpy='sudo mount -o loop,uid=$UID -t vfat ~/VirtualBox\ VMs/DOS/transfer.img /mnt/floppy'
 alias umnt-flpy='sudo umount /mnt/floppy'
