@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Initialize variables
 ARG=$1
 essential=("bashrc" "aliases" "zshrc" "vimrc" "tmux.conf")
@@ -33,7 +32,7 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
 	sudo add-apt-repository ppa:papirus/papirus
-	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme nodejs npm
+	sudo apt install build-essential curl git tmux zsh neovim wget papirus-icon-theme materia-gtk-theme nodejs npm nala
 	## Install Additional/Proprietary Packages
 	### VSCode
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -112,17 +111,17 @@ fi
 # Download plugins and themes for vim and zsh
 
 # Oh-My-ZSH
-#echo "Installing Oh-My-Zsh"
-#sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "Installing Oh-My-Zsh"
+sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # Starship prompt
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 
 # ZSH Spaceship theme
-#echo "Installing Zsh Spaceship theme"
-#ZSH_CUSTOM="/home/elskiee/.oh-my-zsh/custom"
-#git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-#ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+echo "Installing Zsh Spaceship theme"
+ZSH_CUSTOM="/home/elskiee/.oh-my-zsh/custom"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # Vim-plug plugin manager
 echo "Installing Vim-plug plugin manager"
