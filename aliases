@@ -85,10 +85,10 @@ alias l='ls -CF'
 alias lss='ls -s'
 
 # Home Server Mounts
-alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //hiryu.local/exhdd /media/exhdd'
-alias mnt-soryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //hiryu.local/-home /media/hiryu'
-alias umnt-hiryu='sudo umount /media/hiryu'
-alias umnt-hdd='sudo umount /media/exhdd'
+alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //hiryu.local/exhdd $HOME/src/mnt/exhdd'
+alias mnt-hiryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //hiryu.local/hiryu-home $HOME/src/mnt/home'
+alias umnt-hiryu='sudo umount $HOME/src/mnt/home'
+alias umnt-hdd='sudo umount $HOME/src/mnt/exhdd'
 alias mnt-flpy='sudo mount -o loop,uid=$UID -t vfat ~/VirtualBox\ VMs/DOS/transfer.img /mnt/floppy'
 alias umnt-flpy='sudo umount /mnt/floppy'
 
