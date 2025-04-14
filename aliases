@@ -85,9 +85,9 @@ alias l='ls -CF'
 alias lss='ls -s'
 
 # Home Server Mounts
-alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.mnt/credentials,uid=1000,gid=1000 //hiryu.local/exhdd $HOME/src/mnt/exhdd'
-alias mnt-hiryu='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.mnt/credentials //hiryu.local/hiryu-home $HOME/src/mnt/home'
-alias umnt-hiryu='sudo umount $HOME/src/mnt/home'
+alias mnt-hdd='sudo mount -t cifs -o credentials=/home/elskiee/.aliases_secret,uid=1000,gid=1000 //hiryu.local/exhdd $HOME/src/mnt/exhdd'
+alias mnt-home='sudo mount -t cifs -o uid=1000,gid=1000,credentials=/home/elskiee/.aliases_secret //hiryu.local/hiryu-home $HOME/src/mnt/home'
+alias umnt-home='sudo umount $HOME/src/mnt/home'
 alias umnt-hdd='sudo umount $HOME/src/mnt/exhdd'
 alias mnt-flpy='sudo mount -o loop,uid=$UID -t vfat ~/VirtualBox\ VMs/DOS/transfer.img /mnt/floppy'
 alias umnt-flpy='sudo umount /mnt/floppy'
@@ -97,5 +97,5 @@ export akltn="/home/elskiee/Projects/Aklatan"
 alias akltn-dir="cd $akltn/Devel"
 
 # Calibre Library Sync
-alias sync-to-server="rsync -avzh --rsh='ssh -p 1991' /home/elskiee/Storage/src/Calibre\ Library/ elskiee@hiryu.local:/home/elskiee/Calibre\ Library/"
-alias sync-to-local="rsync -avzh --rsh='ssh -p 19921 elskiee@hiryu.local:/home/elskiee/Calibre\ Library/ /home/elskiee/Storage/src/Calibre\ Library/"
+alias sync-to-server="rsync -avzh --rsh='ssh -p 1991' /home/elskiee/Documents/Calibre\ Library/ elskiee@hiryu.local:/home/elskiee/Calibre\ Library/"
+alias sync-to-local="rsync -avzh --rsh='ssh -p 1991' elskiee@hiryu.local:/home/elskiee/Calibre\ Library/ /home/elskiee/Documents/Calibre\ Library/"

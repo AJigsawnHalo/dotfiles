@@ -27,7 +27,7 @@ echo "The OS is $OS $VER"
 # Update and install needed packages
 echo "Checking for required packages"
 # For Debian-based distros
-if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
+if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian GNU/Linux" ]; then
 	## Update Installed Packages
 	sudo apt update && sudo apt upgrade -y
 	## Install Essential Packages
@@ -39,12 +39,12 @@ if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; the
 	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 	sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 	### Spotify
-	curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
-	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	### Discord
 	wget --content-disposition 'https://discord.com/api/download?platform=linux&format=deb' -O /tmp/discord.deb
 	### Sublime Text
-	curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 	sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
 
 	sudo apt update && sudo apt install /tmp/discord.deb spotify-client code ubuntu-restricted-extras sublime-text
@@ -68,7 +68,7 @@ elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	### Install packages
 	yay -Sy discord spotify visual-studio-code-bin sublime-text-4
 # RHEL-based distros
-elif [ "$OS" == "Fedora" ]; then
+elif [ "$OS" == "Fedora Linux" ]; then
 	## Update to fastest mirror
 	sudo dnf config-manager --setopt=fastestmirror=True --save
 	## Update Installed Packages
@@ -157,13 +157,13 @@ ln -sfv $HOME/.dotfiles/starship.toml $HOME/.config/starship.toml
 
 # Create package management symlink for the appropriate distro
 # For Debian-based distros
-if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian" ]; then
+if [ "$OS" == "Pop!_OS" ] || [ "$OS" == "Ubuntu" ] || [ "$OS" == "Debian GNU/Linux" ]; then
 	ln -sfv $HOME/.dotfiles/aptAliases ~/.packman_aliases
 # For Arch-based distros
 elif [ "$OS" == "Arch Linux" ] || [ "$OS" == "Manjaro Linux" ]; then
 	ln -sfv $HOME/.dotfiles/pacmanAliases ~/.packman_aliases
 # For RHEL-based distros
-elif [ "$OS" == "Fedora" ]; then
+elif [ "$OS" == "Fedora Linux" ]; then
 	ln -sfv $HOME/.dotfiles/dnfAliases ~/.packman_aliases
 fi
 
@@ -178,5 +178,5 @@ echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\n\
 	nvim -c 'CocInstall -sync coc-sh coc-marketplace \
 		coc-rls coc-powershell coc-godot \
 		coc-clangd coc-vimlsp coc-tsserver \
-		coc-pyright coc-git coc-cord|q'
+		coc-pyright coc-git|q'
 	echo -e "\nInstall Complete."
